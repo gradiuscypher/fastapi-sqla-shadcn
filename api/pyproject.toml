@@ -1,0 +1,31 @@
+[project]
+name = "api"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "aiosqlite>=0.21.0",
+    "alembic>=1.16.5",
+    "fastapi>=0.116.1",
+    "python-dotenv>=1.1.1",
+    "sqlalchemy[asyncio]>=2.0.43",
+    "uvicorn>=0.35.0",
+]
+
+[dependency-groups]
+dev = [
+    "ipython>=9.5.0",
+    "mypy>=1.17.1",
+    "ruff>=0.12.11",
+]
+
+[tool.ruff]
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = ["D", "T201", "E501"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**/*.py" = ["S101"]
