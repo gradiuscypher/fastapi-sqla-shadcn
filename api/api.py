@@ -9,6 +9,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
 from database import init_database
+from routes.examples import router as examples_router
 from settings import ENVIRONMENT, EnvironmentEnum
 
 logger = logging.getLogger(__name__)
@@ -113,6 +114,7 @@ else:
     logger.info("CORS restrictions disabled for development/test environment")
 
 # Include the routers
+app.include_router(examples_router)
 
 if __name__ == "__main__":
     import uvicorn
